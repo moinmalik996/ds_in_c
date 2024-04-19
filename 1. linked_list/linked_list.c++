@@ -8,9 +8,24 @@ struct Node
     Node *next;
 };
 
-// struct Node *head; // global variable ; can be accessed anywhere
+/*
+    This below function is used to get the
+    legth ( or number of nodes/elements)
+    in the Linked list
+*/
+int findLength(Node *head)
+{
+    int count = 0;
+    while (head != NULL)
+    {
+        count++;
+        head = head->next;
+    }
 
-Node* Insert(Node* head, int x)
+    return count;
+}
+
+Node *Insert(Node *head, int x)
 {
 
     Node *temp = new Node();
@@ -20,8 +35,7 @@ Node* Insert(Node* head, int x)
     return head;
 }
 
-
-void Print(Node* head)
+void Print(Node *head)
 {
     // Node *temp = head;
     cout << "List is :" << endl;
@@ -49,4 +63,6 @@ int main()
         head = Insert(head, x);
         Print(head);
     }
+
+    cout << "The total elements in the linked list = " << findLength(head) << endl;
 }
